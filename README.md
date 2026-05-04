@@ -31,7 +31,25 @@ Parece fácil, mas exige estratégia e antecipação.
 
 ## Como compilar
 
+Precisas de ter o GCC instalado.
+
+```bash
+gcc main.c game.c -o resta1
+```
+
+Para executar:
+
+```bash
+# Linux/macOS
+./resta1
+
+# Windows
+resta1.exe
+```
+
 ## Como jogar
+
+Planejo implementar o jogo no modo de coordenadas (ex: 2 3 2 5 — linha/coluna de origem e destino) e depois adicionar setas (cima/baixo/esquerda/direita) com ncurses como bónus.
 
 ## Estrutura do projeto
 
