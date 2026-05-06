@@ -49,8 +49,45 @@ resta1.exe
 
 ## Como jogar
 
-Planejo implementar o jogo no modo de coordenadas (ex: 2 3 2 5 — linha/coluna de origem e destino) e depois adicionar setas (cima/baixo/esquerda/direita) com ncurses como bónus.
+Ao iniciar o programa, o tabuleiro é apresentado no terminal com as coordenadas
+de cada posição (linha e coluna).
+
+Para realizar um movimento, introduz as coordenadas da peça que queres mover
+e as coordenadas do destino:
+
+Origem (linha coluna): 3 1
+Destino (linha coluna): 3 3
+
+A peça salta sobre a peça adjacente e esta é removida do tabuleiro.
+
+> 🚧 Navegação por setas do teclado planeada como funcionalidade futura.
 
 ## Estrutura do projeto
 
+1.Menu principal — 1 jogador, 2 jogadores, histórico, sair
+2.Pedir nome do jogador — para guardar no histórico
+3.Inicializar o tabuleiro — colocar as 32 peças + centro vazio
+4.Mostrar o tabuleiro — no terminal com coordenadas
+5.Receber input — coordenadas de origem e destino
+6.Validar o movimento — segue as regras?
+7.Executar o movimento — move a peça, remove a saltada
+8.Verificar fim do jogo — há movimentos possíveis? quantas peças restam?
+9.Mostrar resultado — ganhou ou perdeu, tempo, pontuação
+10.Guardar histórico — salvar nome, pontuação e tempo em ficheiro
+11.Mostrar histórico — ler e apresentar o ficheiro
+
+resta1/
+├── main.c       → menu, loop principal, input do utilizador
+├── game.c       → lógica do jogo (tabuleiro, movimentos, validação)
+├── game.h       → declarações de game.c
+├── score.c      → guardar e ler histórico de pontuações
+├── score.h      → declarações de score.c
+├── README.md    → documentação em português
+├── README.en.md → documentação em inglês
+└── LOG.md       → diário de desenvolvimento
+
 ## Autor
+
+**Yasmim Silva**  
+Formação em Java — IEFP  
+[GitHub](https://github.com/SilvaYasmim)
