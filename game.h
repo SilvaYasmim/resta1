@@ -2,6 +2,7 @@
 #define GAME_H
 
 #include <time.h>
+#include <ncurses/ncurses.h>
 
 #define TAMANHO 7
 #define PINO 1

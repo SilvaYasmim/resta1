@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include <ncurses/ncurses.h>
 #include <time.h>
 #include "game.h"
 
@@ -21,10 +21,8 @@ void inicializar_tabuleiro(int tabuleiro[TAMANHO][TAMANHO])
             {
                 tabuleiro[linha][coluna] = PINO;
             }
-            
         }
     }
-
 }
 
 void mostrar_tabuleiro(int tabuleiro[TAMANHO][TAMANHO])
@@ -36,19 +34,16 @@ void mostrar_tabuleiro(int tabuleiro[TAMANHO][TAMANHO])
         {
             if ((linha < 2 || linha > 4) && (coluna < 2 || coluna > 4))
             {
-                printf("   ");
+                mvprintw(linha, coluna * 3, "   ");
             }
             else if (linha == 3 && coluna == 3)
             {
-                printf(" _ ");
+                mvprintw(linha, coluna * 3, " _ ");
             }
             else
             {
-                printf(" O ");
+                mvprintw(linha, coluna * 3, " O ");
             }
-            
         }
-        printf("\n");
     }
-    
 }
