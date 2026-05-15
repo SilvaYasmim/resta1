@@ -56,3 +56,23 @@ Encontrando exatamente onde estavam as pastas do projeto e do MSYS2 e rodando cd
 
 **Linhas de código escritas (estimativa):**
 25
+
+## Sessão 3 – 14/05/2026
+
+**Funcionalidades implementadas:**
+- Adicionaei funções validar movimento e executar movimento no game.c 
+- Adicionei função para verificar o fim do jogo.
+
+**Maior dificuldade:**
+-Como calcular a verificação do tabuleiro em 4 sentidos ( cima, baixo, esquerda e direita)
+-Como fazer o Ncurses funcionar direito para poder redesenhar o tabuleiro no final do loop.
+
+**Como resolvi (ou não resolvi):**
+-desenhei o tabuleiro e pensei como a peça tinha q se mover em linhas e colunas e identifiquei que seria com linha +2 ou -2 e coluna +2 ou -2
+-ainda n resolvi o problema do ncurses...
+
+**Próximo passo planeado:**
+-Resolver problema do ncurses para ele poder gerar novo tabuleiro, talvez fazer um clear e um refresh depois.
+
+**Linhas de código escritas (estimativa):**
+30
