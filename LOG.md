@@ -57,7 +57,7 @@ Encontrando exatamente onde estavam as pastas do projeto e do MSYS2 e rodando cd
 **Linhas de código escritas (estimativa):**
 25
 
-## Sessão 3 – 14/05/2026
+## Sessão 4 – 15/05/2026
 
 **Funcionalidades implementadas:**
 - Adicionaei funções validar movimento e executar movimento no game.c 
