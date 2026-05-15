@@ -38,3 +38,21 @@ Pensando que é um jogo de paciencia e que provavelmente teriamos horas e minuto
 
 **Linhas de código escritas (estimativa):**
 15
+
+## Sessão 3 – 14/05/2026
+
+**Funcionalidades implementadas:**
+- Adicionaei inicializador do tabuleiro e mostrar tabuleiro
+- Adicionei ncurses
+
+**Maior dificuldade:**
+integrar o ncurses com o MSYS2
+
+**Como resolvi (ou não resolvi):**
+Encontrando exatamente onde estavam as pastas do projeto e do MSYS2 e rodando cd no MSYS2 e depois copiando o caminho pro vscode.
+
+**Próximo passo planeado:**
+-implementar função validar_movimento
+
+**Linhas de código escritas (estimativa):**
+25
