@@ -99,3 +99,24 @@ ainda estou organizando, coloquei uma malha com coordenadas, mas ainda n acho su
 
 **Linhas de código escritas (estimativa):**
 80
+
+## Sessão 5b – 01/06/2026
+
+**Funcionalidades implementadas:**
+- Opção "Como Jogar" no menu com instruções
+- Menu em loop — volta ao menu após histórico e como jogar
+- README.md completo em português
+- README.en.md completo em inglês
+- Testes finais — todas as funcionalidades confirmadas
+
+**Maior dificuldade:**
+Ajustar o main para que ficasse completo de acordo com o menu que eu queria.
+
+**Como resolvi (ou não resolvi):**
+Alinhei linha por linha do main com o game.c
+
+**Próximo passo planeado:**
+- Projeto entregue
+
+**Linhas de código escritas (estimativa):**
+30
