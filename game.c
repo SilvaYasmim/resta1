@@ -3,6 +3,23 @@
 #include "game.h"
 #include <stdlib.h>
 
+int mostrar_menu()
+{
+    int opcao;
+    clear();
+    mvprintw(2, 10, "=== RESTA 1 ===");
+    mvprintw(4, 10, "1. Jogar");
+    mvprintw(6, 10, "2. Ver Historico");
+    mvprintw(7, 10, "3. Sair");
+    mvprintw(9, 10, "Escolha: ");
+    refresh();
+    echo();
+    scanw("%d", &opcao);
+    noecho();
+    return opcao;
+}
+
+
 void inicializar_tabuleiro(int tabuleiro[TAMANHO][TAMANHO])
 {
     int linha, coluna;
@@ -29,22 +46,23 @@ void inicializar_tabuleiro(int tabuleiro[TAMANHO][TAMANHO])
 void mostrar_tabuleiro(int tabuleiro[TAMANHO][TAMANHO])
 {
     int linha, coluna;
+    
+    // cabeçalho das colunas
+    mvprintw(1, 1, "  0  1  2  3  4  5  6");
+    
     for (linha = 0; linha < TAMANHO; linha++)
     {
+        // número da linha à esquerda
+        mvprintw(linha + 2, 0, "%d", linha);
+        
         for (coluna = 0; coluna < TAMANHO; coluna++)
         {
-            if ((linha < 2 || linha > 4) && (coluna < 2 || coluna > 4))
-            {
-                mvprintw(linha, coluna * 3, "   ");
-            }
-            else if (linha == 3 && coluna == 3)
-            {
-                mvprintw(linha, coluna * 3, " _ ");
-            }
+            if (tabuleiro[linha][coluna] == INVALIDO)
+                mvprintw(linha + 2, coluna * 3 + 2, "   ");
+            else if (tabuleiro[linha][coluna] == VAZIO)
+                mvprintw(linha + 2, coluna * 3 + 2, " _ ");
             else
-            {
-                mvprintw(linha, coluna * 3, " O ");
-            }
+                mvprintw(linha + 2, coluna * 3 + 2, " O ");
         }
     }
 }
