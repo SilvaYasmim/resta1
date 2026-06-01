@@ -76,3 +76,26 @@ Encontrando exatamente onde estavam as pastas do projeto e do MSYS2 e rodando cd
 
 **Linhas de código escritas (estimativa):**
 30
+
+## Sessão 5 – 01/06/2026
+
+**Funcionalidades implementadas:**
+- Menu principal com opções Jogar, Ver Histórico e Sair
+- Sistema de score com nome do jogador e tempo de jogo
+- Ficheiros score.c e score.h criados
+- Histórico guardado em scores.txt
+- Coordenadas no tabuleiro (linhas e colunas)
+- Loop do jogo completo e funcional
+
+**Maior dificuldade:**
+foi conseguir achar uma forma mais intuitiva de representar a tabela... acho que o jogo não da pra entender como as peças se movem...
+
+**Como resolvi (ou não resolvi):**
+ainda estou organizando, coloquei uma malha com coordenadas, mas ainda n acho suficiente.
+
+**Próximo passo planeado:**
+- Completar README com estrutura do projeto
+- Testes finais e entrega
+
+**Linhas de código escritas (estimativa):**
+80
