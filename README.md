@@ -1,7 +1,5 @@
 # Resta 1
 
-> 🚧 Em progresso / Work in progress
-
 ## Sobre o projeto
 
 Este projeto foi desenvolvido no âmbito da cadeira de Programação em C/C++ — Fundamentos,
@@ -31,60 +29,47 @@ Parece fácil, mas exige estratégia e antecipação.
 
 ## Como compilar
 
-Precisas de ter o GCC instalado.
+Precisas de ter o GCC e o ncurses instalados.
 
+**Linux/macOS:**
 ```bash
-gcc main.c game.c -o resta1
+gcc main.c game.c score.c -o resta1 -lncurses
+```
+
+**Windows (MSYS2 UCRT64):**
+```bash
+gcc main.c game.c score.c -o resta1 -I/ucrt64/include/ncurses -L/ucrt64/lib -lncursesw
 ```
 
 Para executar:
-
 ```bash
-# Linux/macOS
 ./resta1
-
-# Windows
-resta1.exe
 ```
 
 ## Como jogar
 
-Ao iniciar o programa, o tabuleiro é apresentado no terminal com as coordenadas
-de cada posição (linha e coluna).
+Ao iniciar o programa aparece um menu com as opções Jogar, Como Jogar, Ver Histórico e Sair.
 
-Para realizar um movimento, introduz as coordenadas da peça que queres mover
-e as coordenadas do destino:
+O tabuleiro é apresentado no terminal com coordenadas de linha e coluna (0-6).
+Para realizar um movimento, introduz as coordenadas de origem e destino:
 
-Origem (linha coluna): 3 1
+Origem (linha coluna): 3 5
 Destino (linha coluna): 3 3
 
 A peça salta sobre a peça adjacente e esta é removida do tabuleiro.
 
-> 🚧 Navegação por setas do teclado planeada como funcionalidade futura.
-
 ## Estrutura do projeto
 
-1.Menu principal — 1 jogador, 2 jogadores, histórico, sair
-2.Pedir nome do jogador — para guardar no histórico
-3.Inicializar o tabuleiro — colocar as 32 peças + centro vazio
-4.Mostrar o tabuleiro — no terminal com coordenadas
-5.Receber input — coordenadas de origem e destino
-6.Validar o movimento — segue as regras?
-7.Executar o movimento — move a peça, remove a saltada
-8.Verificar fim do jogo — há movimentos possíveis? quantas peças restam?
-9.Mostrar resultado — ganhou ou perdeu, tempo, pontuação
-10.Guardar histórico — salvar nome, pontuação e tempo em ficheiro
-11.Mostrar histórico — ler e apresentar o ficheiro
-
 resta1/
-├── main.c       → menu, loop principal, input do utilizador
-├── game.c       → lógica do jogo (tabuleiro, movimentos, validação)
-├── game.h       → declarações de game.c
-├── score.c      → guardar e ler histórico de pontuações
-├── score.h      → declarações de score.c
-├── README.md    → documentação em português
-├── README.en.md → documentação em inglês
-└── LOG.md       → diário de desenvolvimento
+├── main.c        → ponto de entrada, menu principal e loop do jogo
+├── game.c        → lógica do jogo (tabuleiro, movimentos, validação)
+├── game.h        → declarações e constantes de game.c
+├── score.c       → guardar e mostrar histórico de pontuações
+├── score.h       → declarações de score.c
+├── README.md     → documentação em português
+├── README.en.md  → documentação em inglês
+├── PLANNING.md   → planeamento de funções e variáveis
+└── LOG.md        → diário de desenvolvimento
 
 ## Autor
 
