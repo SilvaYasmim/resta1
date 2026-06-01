@@ -9,8 +9,9 @@ int mostrar_menu()
     clear();
     mvprintw(2, 10, "=== RESTA 1 ===");
     mvprintw(4, 10, "1. Jogar");
-    mvprintw(6, 10, "2. Ver Historico");
-    mvprintw(7, 10, "3. Sair");
+    mvprintw(5, 10, "2. Como Jogar");
+    mvprintw(6, 10, "3. Ver Historico");
+    mvprintw(7, 10, "4. Sair");
     mvprintw(9, 10, "Escolha: ");
     refresh();
     echo();
@@ -18,7 +19,6 @@ int mostrar_menu()
     noecho();
     return opcao;
 }
-
 
 void inicializar_tabuleiro(int tabuleiro[TAMANHO][TAMANHO])
 {
@@ -28,17 +28,11 @@ void inicializar_tabuleiro(int tabuleiro[TAMANHO][TAMANHO])
         for (coluna = 0; coluna < TAMANHO; coluna++)
         {
             if ((linha < 2 || linha > 4) && (coluna < 2 || coluna > 4))
-            {
                 tabuleiro[linha][coluna] = INVALIDO;
-            }
             else if (linha == 3 && coluna == 3)
-            {
                 tabuleiro[linha][coluna] = VAZIO;
-            }
             else
-            {
                 tabuleiro[linha][coluna] = PINO;
-            }
         }
     }
 }
@@ -46,15 +40,10 @@ void inicializar_tabuleiro(int tabuleiro[TAMANHO][TAMANHO])
 void mostrar_tabuleiro(int tabuleiro[TAMANHO][TAMANHO])
 {
     int linha, coluna;
-    
-    // cabeçalho das colunas
     mvprintw(1, 1, "  0  1  2  3  4  5  6");
-    
     for (linha = 0; linha < TAMANHO; linha++)
     {
-        // número da linha à esquerda
         mvprintw(linha + 2, 0, "%d", linha);
-        
         for (coluna = 0; coluna < TAMANHO; coluna++)
         {
             if (tabuleiro[linha][coluna] == INVALIDO)
@@ -69,35 +58,22 @@ void mostrar_tabuleiro(int tabuleiro[TAMANHO][TAMANHO])
 
 int validar_movimento(int tabuleiro[TAMANHO][TAMANHO], int orig_linha, int orig_coluna, int dest_linha, int dest_coluna)
 {
-    int linha_meio;
-    int coluna_meio;
-
+    int linha_meio, coluna_meio;
     if (dest_linha < 0 || dest_linha >= TAMANHO || dest_coluna < 0 || dest_coluna >= TAMANHO)
-    return 0;
-    
+        return 0;
     linha_meio = (orig_linha + dest_linha) / 2;
     coluna_meio = (orig_coluna + dest_coluna) / 2;
-
-    if (tabuleiro[orig_linha][orig_coluna] != PINO)
-        return 0;
-    if (tabuleiro[dest_linha][dest_coluna] != VAZIO)
-        return 0;
-    if (tabuleiro[linha_meio][coluna_meio] != PINO)
-        return 0;
-    if (abs(dest_linha - orig_linha) + abs(dest_coluna - orig_coluna) != 2)
-        return 0;
-
+    if (tabuleiro[orig_linha][orig_coluna] != PINO) return 0;
+    if (tabuleiro[dest_linha][dest_coluna] != VAZIO) return 0;
+    if (tabuleiro[linha_meio][coluna_meio] != PINO) return 0;
+    if (abs(dest_linha - orig_linha) + abs(dest_coluna - orig_coluna) != 2) return 0;
     return 1;
 }
 
 void executar_movimento(int tabuleiro[TAMANHO][TAMANHO], int orig_linha, int orig_coluna, int dest_linha, int dest_coluna)
 {
-
-    int linha_meio;
-    int coluna_meio;
-    linha_meio = (orig_linha + dest_linha) / 2;
-    coluna_meio = (orig_coluna + dest_coluna) / 2;
-
+    int linha_meio = (orig_linha + dest_linha) / 2;
+    int coluna_meio = (orig_coluna + dest_coluna) / 2;
     tabuleiro[orig_linha][orig_coluna] = VAZIO;
     tabuleiro[linha_meio][coluna_meio] = VAZIO;
     tabuleiro[dest_linha][dest_coluna] = PINO;
@@ -105,34 +81,17 @@ void executar_movimento(int tabuleiro[TAMANHO][TAMANHO], int orig_linha, int ori
 
 int verificar_fim_do_jogo(int tabuleiro[TAMANHO][TAMANHO])
 {
-
-    int linha, coluna;
-    int contador = 0;
+    int linha, coluna, contador = 0;
     for (linha = 0; linha < TAMANHO; linha++)
-    {
         for (coluna = 0; coluna < TAMANHO; coluna++)
-        {
-            if (tabuleiro[linha][coluna] == PINO)
-            {
-                contador++;
-            }
-        }
-    }
-    if (contador == 1)
-        return 1;
+            if (tabuleiro[linha][coluna] == PINO) contador++;
+    if (contador == 1) return 1;
     for (linha = 0; linha < TAMANHO; linha++)
-    {
-        for (coluna = 0; coluna < TAMANHO; coluna++)
-        {
-            if (validar_movimento(tabuleiro, linha, coluna, linha - 2, coluna))
-                return 0; // cima
-            if (validar_movimento(tabuleiro, linha, coluna, linha + 2, coluna))
-                return 0; // baixo
-            if (validar_movimento(tabuleiro, linha, coluna, linha, coluna - 2))
-                return 0; // esquerda
-            if (validar_movimento(tabuleiro, linha, coluna, linha, coluna + 2))
-                return 0; // direita
+        for (coluna = 0; coluna < TAMANHO; coluna++) {
+            if (validar_movimento(tabuleiro, linha, coluna, linha - 2, coluna)) return 0;
+            if (validar_movimento(tabuleiro, linha, coluna, linha + 2, coluna)) return 0;
+            if (validar_movimento(tabuleiro, linha, coluna, linha, coluna - 2)) return 0;
+            if (validar_movimento(tabuleiro, linha, coluna, linha, coluna + 2)) return 0;
         }
-    }
     return 2;
 }
